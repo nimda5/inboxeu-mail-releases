@@ -16,6 +16,22 @@
       "distribution": "dmg",
       "version": "1.6.18",
       "url": "https://github.com/nimda5/inboxeu-mail-releases/releases/download/v1.6.18/inboxeu-mail-v1.6.18-macos-apple-silicon.dmg"
+    },
+    {
+      "variant": "public",
+      "platform": "linux",
+      "arch": "x64",
+      "distribution": "appimage",
+      "version": "1.6.18",
+      "url": "https://github.com/nimda5/inboxeu-mail-releases/releases/download/v1.6.18/inboxeu-mail-v1.6.18-linux-x64.AppImage"
+    },
+    {
+      "variant": "public",
+      "platform": "linux",
+      "arch": "x64",
+      "distribution": "deb",
+      "version": "1.6.18",
+      "url": "https://github.com/nimda5/inboxeu-mail-releases/releases/download/v1.6.18/inboxeu-mail-v1.6.18-linux-x64.deb"
     }
   ]
 }
