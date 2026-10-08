@@ -1,4 +1,13 @@
 {
   "schemaVersion": 1,
-  "releases": []
+  "releases": [
+    {
+      "variant": "public",
+      "platform": "win32",
+      "arch": "x64",
+      "distribution": "store",
+      "version": "1.6.17",
+      "url": "https://apps.microsoft.com/detail/9MXZ1TBVHRK6"
+    }
+  ]
 }
