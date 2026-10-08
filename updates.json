@@ -8,6 +8,14 @@
       "distribution": "store",
       "version": "1.6.17",
       "url": "https://apps.microsoft.com/detail/9MXZ1TBVHRK6"
+    },
+    {
+      "variant": "public",
+      "platform": "darwin",
+      "arch": "arm64",
+      "distribution": "dmg",
+      "version": "1.6.18",
+      "url": "https://github.com/nimda5/inboxeu-mail-releases/releases/download/v1.6.18/inboxeu-mail-v1.6.18-macos-apple-silicon.dmg"
     }
   ]
 }
