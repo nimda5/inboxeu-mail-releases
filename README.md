@@ -16,9 +16,18 @@ Available for Windows, macOS, and Linux.
 
 ## Download
 
-- **Windows** — available on the [Microsoft Store](https://apps.microsoft.com/detail/9MXZ1TBVHRK6),
+- **Windows 10/11** — available on the [Microsoft Store](https://apps.microsoft.com/detail/9MXZ1TBVHRK6),
   which also handles updates automatically.
-- **macOS / Linux** — see [Releases](https://github.com/nimda5/inboxeu-mail-releases/releases) for standalone installers.
+- **macOS 12 or newer, Apple Silicon** — download the signed and Apple-notarized
+  **DMG** from [Releases](https://github.com/nimda5/inboxeu-mail-releases/releases).
+- **Linux x64** — download **AppImage** or **DEB** from
+  [Releases](https://github.com/nimda5/inboxeu-mail-releases/releases). AppImage
+  requires FUSE 2. DEB is for compatible Debian/Ubuntu systems.
+
+The published Mac and Linux packages offer INBOX.EU (selected by default) and
+Other IMAP/SMTP accounts. Gmail sign-in is hidden while Google verification is
+ongoing. These packages check for updates and offer the matching download;
+installation is manual.
 
 ## What is inbox.eu
 
