@@ -115,7 +115,7 @@ Account setup explains that IMAP and SMTP connections to the provider use TLS en
   include only the allow-listed runtime values from `.env`; Store submission
   credentials and other build-machine secrets are excluded.
   Outlook.com and Microsoft 365 support is in the
-  [research and registration planning stage](docs/MICROSOFT_INTEGRATION_PLAN.md),
+  research and registration planning stage,
   including personal/corporate onboarding and the Graph-versus-IMAP decision;
   Microsoft account sign-in is not available yet.
   Gmail's system mailboxes are shown alongside Inbox, while user-created Gmail
