@@ -9,7 +9,7 @@ This repository hosts official stable releases and public update information.
 - [Microsoft Store for Windows](https://apps.microsoft.com/detail/9MXZ1TBVHRK6)
 - [Published releases for macOS and Linux](https://github.com/nimda5/inboxeu-mail-releases/releases) — packages appear here when available.
 
-macOS packages target Apple Silicon. No macOS or Linux packages have been published here yet.
+macOS packages, when available, target Apple Silicon. See Releases for current package availability.
 
 ## Privacy and support
 
