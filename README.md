@@ -53,7 +53,21 @@ preserve the originals.
 
 ## Highlights
 
-- **Sender identity in message lists** — sender email replaces the To line.
+Gmail and INBOX.EU behaviour is managed through the mail-provider architecture.
+
+Settings > Preferences > ALL Folder includes independent Gmail selections for
+Primary (INBOX), Promotions, Social and Updates, matching the sidebar categories.
+All message badges show the corresponding Gmail category while INBOX keeps its
+name. Archive filtering checks cached message membership as well as Gmail labels
+so All Mail copies cannot bypass the selected Inbox categories.
+
+Dev/test account setup shows large Google and INBOX.EU provider buttons with
+logos, sign-in descriptions and a clear selection indicator.
+Account setup explains that IMAP and SMTP connections to the provider use TLS encryption.
+
+- **Message identity in lists** — Inbox and received mail show sender addresses;
+  Sent and Drafts show recipient names and email addresses, with Cc identified
+  correctly when no To recipients exist. Empty drafts say No recipients.
   All folders adds the receiving account's provider icon first in each row's badges.
 
 - **Message context menu** — right-click text to copy or search, links to open
@@ -66,6 +80,7 @@ preserve the originals.
 
 - **Consistent compose actions** — equally sized Cancel and Send stay visible in a fixed bottom bar, including expanded editing and short windows.
 - **Independent signature formatting** — new writing uses the preferred font size on a separate line before the saved signature.
+- **Clear account cache safely** — Settings > Data shows estimated storage per account. Clear cache downloads mail again while preserving your signature, login and settings.
 - **Quiet empty compose** — a new message containing only its automatic signature
   closes immediately; written content and saved drafts retain the save/discard prompt.
 
@@ -83,14 +98,57 @@ preserve the originals.
 - **Clear sign-in validation** — both first-run setup and Add Account check the
   email address before connecting. Invalid input gets a hint beside the field;
   surrounding spaces are removed, and custom domains and plus tags are supported.
-- **Gmail development path** — in process of certification
+- **Privacy policy** — adding an account requires an explicit agreement to the
+  [Privacy Policy](https://help.inbox.eu/privacy-policy) for every provider.
+  The policy also remains accessible in Settings > About.
+  About describes the app's INBOX.EU roots and support for Gmail and other
+  IMAP/SMTP accounts.
+- **Refused sign-in** — requests waiting on an account that needs a new sign-in
+  fail promptly, allowing message viewing to continue in another account.
+  Interrupted mail actions remain queued for replay after credentials change.
+  Message viewing also uses independent queues per account, so a slow or offline
+  mailbox cannot delay opening a message from another account.
+- **Gmail development path** — the separate dev profile can connect a Gmail
+  account using system-browser OAuth with PKCE and IMAP XOAUTH2. Set the Desktop OAuth client
+  credentials in `.env` and `SIEVER_DEV_PROFILE=1`; Gmail remains hidden
+  in release builds while integration testing is in progress. Release packages
+  include only the allow-listed runtime values from `.env`; Store submission
+  credentials and other build-machine secrets are excluded.
+  Outlook.com and Microsoft 365 support is in the
+  [research and registration planning stage](docs/MICROSOFT_INTEGRATION_PLAN.md),
+  including personal/corporate onboarding and the Graph-versus-IMAP decision;
+  Microsoft account sign-in is not available yet.
+  Gmail's system mailboxes are shown alongside Inbox, while user-created Gmail
+  labels appear in Labels and stay synchronized with Gmail. The app's Important
+  mark toggles Gmail Starred; Gmail's separate importance classification appears
+  only as an outline hint. Signing in again
+  with the same Google account renews access without replacing local account data.
+  When Google access is revoked or expires, the account says so in a banner with
+  a Sign in to Google button, and a refused send offers the same instead of Retry.
+  Google sign-in finishes without closing the browser.
+  The unified All view uses Gmail's X-GM-MSGID to show messages with multiple
+  Gmail labels once. In All's folder choices, Gmail All Mail contributes only
+  archived mail; Inbox and Sent remain independent choices. The first run after
+  this change rebuilds the Gmail mail cache.
+  Gmail INBOX shows the Primary view, while Promotions, Social and Updates
+  appear as separate virtual folders backed by Gmail's own category search.
+  These views do not create extra message copies; All still includes every category.
+  A background IMAP LIST discovers labels created in Gmail web; MODSEQ and
+  X-GM-LABELS refresh existing cached messages, including the open Inbox.
+  Removing an account deletes its local mail cache and account preferences.
 - **Snappy native feel** — the mail list, viewer and tree pickers are tuned
   to behave like a native client (precise truncation, keyboard navigation,
-  real focus rings). Both column dividers track dragging without re-rendering
+  real focus rings). An open message's subject and addresses scroll away
+  with it while the action toolbar stays pinned; in the three-pane layout
+  the header folds to a compact sender line, leaving the message most of
+  the column. Both column dividers track dragging without re-rendering
   the mail list on every pointer movement; widths save when released. The
   Windows tray uses a multi-size ICO
   with native DPI frames, packaged as a physical resource for both installer
   and Microsoft Store builds so the notification area can select the right image.
+  Windows tray, taskbar and app-list icons, Linux launcher icons, desktop
+  notifications and in-app provider marks use full-width artwork without
+  extra transparent padding. macOS Dock assets retain their optical margins.
 - **Real rich-text composer** — Squire-based editor with proper line-height,
   paste sanitisation and signature handling. New text defaults to 16 px, with
   an adjustable size in Settings → Preferences that saves immediately and shows
@@ -130,13 +188,18 @@ preserve the originals.
 - **Folder management** — create, rename, empty and delete your own
   folders (up to three levels inside Inbox) from Settings → Folders or a
   right-click on a folder; system folders stay protected, and deleted mail
-  goes to Trash first.
+  goes to Trash first. For an account on another mail server, Settings →
+  Folders sets the order its folders appear in.
 - **Live background sync** — IMAP IDLE pushes changes for the open folder,
   while a light periodic status check picks up the rest, one folder at a time.
   MODSEQ polling also catches external flag and keyword changes missed by
   IDLE; newly observed IMAP labels appear in the open UI without reconnecting.
 - **Encrypted credentials at rest** — passwords and tokens pass through the
   OS keychain via Electron's `safeStorage`.
+- **A changed password is not hammered** — when the server stops accepting
+  the saved password, the account stops logging in (so the server has no
+  reason to lock it) and shows a banner with Update password and Try again;
+  a send it refused offers the same update, then reopens the message.
 - **Local-only data** — everything lives in a SQLite database on the user's
   machine. No remote analytics, no third-party tracking.
 - **Calendar invitations** — event details are available for every account;
@@ -163,7 +226,6 @@ preserve the originals.
   when you dock or undock.
 - **Light and dark themes** — follows the system light/dark mode by default,
   or stays on the one you pick.
-
 
 ## Privacy and support
 
