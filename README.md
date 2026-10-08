@@ -53,17 +53,7 @@ preserve the originals.
 
 ## Highlights
 
-Gmail and INBOX.EU behaviour is managed through the mail-provider architecture.
-
-Settings > Preferences > ALL Folder includes independent Gmail selections for
-Primary (INBOX), Promotions, Social and Updates, matching the sidebar categories.
-All message badges show the corresponding Gmail category while INBOX keeps its
-name. Archive filtering checks cached message membership as well as Gmail labels
-so All Mail copies cannot bypass the selected Inbox categories.
-
-Dev/test account setup shows large Google and INBOX.EU provider buttons with
-logos, sign-in descriptions and a clear selection indicator.
-Account setup explains that IMAP and SMTP connections to the provider use TLS encryption.
+- **Gmail / INBOX.EU / other IMAP** behaviour is managed through the mail-provider architecture.
 
 - **Message identity in lists** — Inbox and received mail show sender addresses;
   Sent and Drafts show recipient names and email addresses, with Cc identified
