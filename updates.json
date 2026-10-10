@@ -14,8 +14,8 @@
       "platform": "darwin",
       "arch": "arm64",
       "distribution": "dmg",
-      "version": "1.6.20",
-      "url": "https://github.com/nimda5/inboxeu-mail-releases/releases/download/v1.6.20/inboxeu-mail-v1.6.20-macos-apple-silicon.dmg"
+      "version": "1.6.21",
+      "url": "https://github.com/nimda5/inboxeu-mail-releases/releases/download/v1.6.21/inboxeu-mail-v1.6.21-macos-apple-silicon.dmg"
     },
     {
       "variant": "public",
